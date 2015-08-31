@@ -1,2 +1,6 @@
+# jenkins slave
 [slave]
 10.10.10.2
+
+[localhost]
+127.0.0.1
