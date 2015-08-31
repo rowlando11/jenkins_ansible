@@ -1,0 +1,17 @@
+---
+
+- hosts: slave
+  remote_user: jenkins
+  sudo: yes
+
+  tasks:
+  
+    - name: install nginx & pip
+      yum: name={{ item }} state=present 
+      with_items:
+         - nginx
+         - python-pip
+
+    - name: install ansible-lint
+      pip: name=ansible-lint
+    
