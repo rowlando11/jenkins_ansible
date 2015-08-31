@@ -1,0 +1,10 @@
+---
+
+- hosts: all
+  remote_user: jenkins
+  sudo: true
+
+  tasks:
+     - name: add rowland
+       user: name=rowlando shell=/bin/bash
+             
