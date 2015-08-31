@@ -1,4 +1,5 @@
 ---
+
 # ansible build using jenkins and uplink/downlink builds
 
 - hosts: slave
@@ -6,9 +7,9 @@
   sudo: yes
 
   tasks:
-  
+
     - name: install nginx & pip
-      yum: name={{ item }} state=absent 
+      yum: name={{ item }} state=absent
       with_items:
          - nginx
          - python-pip
@@ -17,8 +18,14 @@
   tasks:
 
      - name: install pip
-       yum: name=python-pip state=present
+       yum: name={{ item }} state=present
+       with_items:
+          - python-pip
+          - facter
 
      - name: install ansible-lint
        pip: name=ansible-lint
-    
+
+- hosts: all
+  tasks:
+- include: test.yml
