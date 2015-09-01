@@ -7,4 +7,3 @@
   tasks:
      - name: add rowland
        user: name=rowlando shell=/bin/bash
-             
