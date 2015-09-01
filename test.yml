@@ -5,5 +5,5 @@
   sudo: true
 
   tasks:
-     - name: add rowland
+     - name: add rowland on all hosts
        user: name=rowlando shell=/bin/bash
