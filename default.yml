@@ -4,28 +4,32 @@
 
 - hosts: slave
   remote_user: jenkins
+  gather_facts: no
   sudo: yes
 
   tasks:
 
-    - name: install nginx & pip
+    - name: install nginx & pip slave
       yum: name={{ item }} state=absent
       with_items:
          - nginx
          - python-pip
 
 - hosts: localhost
+  gather_facts: no
   tasks:
 
-     - name: install pip
+     - name: install pip on localhost
        yum: name={{ item }} state=present
        with_items:
           - python-pip
           - facter
 
-     - name: install ansible-lint
+     - name: install ansible-lint on localhost
        pip: name=ansible-lint
 
 - hosts: all
+  gather_facts: no
   tasks:
 - include: test.yml
+##
